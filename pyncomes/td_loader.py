@@ -62,6 +62,19 @@ class TDExcel:
     def __init__(self):
         self.fileLocations = []
 
+    def extractFileIterator(self, filename):
+
+        """
+        Returns an iterator which extracts all the information about the file
+        """
+
+        table = pandas.read_excel(filename, skiprows=1, index_col=0)
+
+        for i in table.index:
+            yield (i, table.loc[i][u'Taxa Compra Manhã'],
+                   table.loc[i][u'PU Compra Manhã'],
+                   table.loc[i][u'PU Venda Manhã'])
+
 
 class Title:
     """
