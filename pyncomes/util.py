@@ -37,13 +37,13 @@ def iof(d):
     if d >= 30: return 0.0
     return IOF[d]
 
+
 def ir(d):
     if d <= 180:
-        return 22.5
+        return 0.225
     elif d <= 360:
-        return 20.0
+        return 0.2
     elif d <= 720:
-        return 17.5
+        return 0.175
 
-    return 15.0
-
+    return 0.15
